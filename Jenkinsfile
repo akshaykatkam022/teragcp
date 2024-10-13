@@ -20,6 +20,13 @@ pipeline {
                 }
             }
         }
+	    stage('Import Existing GCS Bucket') {
+            steps {
+                script {
+                        sh 'terraform import google_storage_bucket.my_bucket my-existing-bucket'
+                    }
+                }
+            }
         
         stage('Terraform Plan') {
             steps {
@@ -34,8 +41,9 @@ pipeline {
                 input "Approve?"
             }
         }
+       
 	    
-        stage('Terraform Apply') {
+   stage('Terraform Apply') {
             steps {
                 script {
                     sh 'terraform apply tfplan'
