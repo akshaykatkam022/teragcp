@@ -5,7 +5,7 @@ resource "google_storage_bucket" "my-bucket" {
   
   
 }
-resource "google_storage_bucket" "my-bucket2" {
+resource "google_storage_bucket" "my_bucket2" {
   name                     = "import-test-bucket-terarform"
   project                  = "test-terraform-438504"
   location                 = "US"
